@@ -1,0 +1,54 @@
+:root {
+  --ink: #1d2831;
+  --muted: #69747d;
+  --paper: #fbfaf6;
+  --mist: #eaf0ec;
+  --accent: #d66a45;
+  --line: #d8dfda;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.75 "Be Vietnam Pro", sans-serif; }
+a { color: inherit; text-decoration: none; }
+img { display: block; width: 100%; }
+.container { width: min(1120px, calc(100% - 48px)); margin: auto; }
+
+.site-header { padding: 23px 0; border-bottom: 1px solid var(--line); }
+.nav, .footer-content { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.logo { font-size: 1.55rem; font-weight: 800; letter-spacing: -1px; }
+.logo span { color: var(--accent); }
+nav { display: flex; gap: 28px; font-size: .9rem; font-weight: 600; }
+nav a:hover, .text-link:hover, .favorite-card h3 a:hover { color: var(--accent); }
+
+.hero { min-height: 575px; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 80px; padding: 75px 40px; }
+.eyebrow { margin: 0 0 9px; color: var(--accent); font-size: .73rem; letter-spacing: .16em; font-weight: 800; }
+h1, h2, h3 { line-height: 1.2; }
+h1, h2 { font-family: "Playfair Display", serif; }
+h1 { margin: 0; font-size: clamp(3rem, 7vw, 5.3rem); letter-spacing: -.05em; }
+h2 { margin: 0 0 22px; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.03em; }
+h3 { margin: 4px 0 3px; font-size: 1.05rem; }
+.lead { max-width: 530px; margin: 19px 0 30px; color: var(--muted); font-size: 1.15rem; }
+.hero-actions { display: flex; gap: 23px; align-items: center; }
+.button { padding: 12px 21px; background: var(--ink); color: white; border-radius: 3px; font-size: .88rem; font-weight: 700; }
+.button:hover { background: var(--accent); }
+.text-link { font-size: .88rem; font-weight: 700; }.text-link span { margin-left: 5px; }
+.portrait-wrap { position: relative; max-width: 360px; justify-self: end; }
+.portrait-wrap img { height: 430px; object-fit: cover; border-radius: 180px 180px 8px 8px; filter: saturate(.8); }
+.portrait-note { position: absolute; left: -38px; bottom: 25px; padding: 12px 18px; background: white; box-shadow: 0 8px 25px #28322818; font-size: .75rem; line-height: 1.45; }.portrait-note strong { color: var(--accent); }
+
+.intro-section { background: var(--mist); padding: 90px 0; }
+.two-columns { display: grid; grid-template-columns: 1.1fr .9fr; gap: 105px; align-items: center; }
+.about-card p:not(.eyebrow) { margin: 0 0 12px; }
+.quick-info { padding: 33px; background: var(--paper); border-top: 4px solid var(--accent); }
+.quick-info h2 { font-size: 1.75rem; }.quick-info dl { margin: 0; }.quick-info dl div { display: grid; grid-template-columns: 105px 1fr; padding: 11px 0; border-bottom: 1px solid var(--line); }.quick-info dl div:last-child { border: 0; }.quick-info dt { color: var(--muted); font-size: .78rem; }.quick-info dd { margin: 0; font-weight: 600; font-size: .9rem; }
+
+.content-section { padding: 100px 0 82px; }.timeline { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 40px; border-top: 1px solid var(--line); }.timeline article { min-height: 175px; padding: 25px 28px 0 0; border-right: 1px solid var(--line); }.timeline article:not(:first-child) { padding-left: 28px; }.timeline article:last-child { border: 0; }.timeline span, .favorite-card span { color: var(--muted); font-size: .78rem; }.timeline p { margin: 7px 0; color: var(--muted); font-size: .87rem; line-height: 1.65; }
+.courses { margin-top: 80px; padding: 42px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; background: var(--ink); color: white; }.courses h2 { margin: 0; font-size: 2rem; }.courses ol { margin: 0; columns: 2; padding-left: 23px; font-size: .9rem; }.courses li { padding: 4px 0 4px 6px; }.courses li::marker { color: #e39578; font-weight: 800; }
+
+.favorites-section { padding: 90px 0 100px; background: #f2eee7; }.favorite-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 36px; }.favorite-card img { height: 245px; object-fit: cover; filter: grayscale(25%); transition: transform .25s, filter .25s; }.favorite-card a:hover img { transform: translateY(-5px); filter: grayscale(0); }.favorite-card p { margin: 14px 0 0; color: var(--accent); font-weight: 800; }.favorite-card h3 { font-family: "Playfair Display", serif; font-size: 1.42rem; }
+.quote-neighbor { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; padding: 105px 0; }blockquote { margin: 0; padding: 16px 0 16px 30px; border-left: 3px solid var(--accent); font: italic 1.65rem/1.45 "Playfair Display", serif; }cite { display: block; margin-top: 17px; color: var(--muted); font: .8rem "Be Vietnam Pro", sans-serif; }.neighbor h2 { font-size: 2.2rem; margin-bottom: 12px; }.neighbor p:last-child { margin: 0; color: var(--muted); }
+
+footer { padding: 45px 0 19px; background: var(--ink); color: white; }.footer-content p { margin: 7px 0 0; color: #c6ccce; font-size: .82rem; }.social-links { display: flex; gap: 10px; }.social-links a { display: grid; width: 35px; height: 35px; place-items: center; border: 1px solid #657178; border-radius: 50%; font-weight: 700; }.social-links a:hover { border-color: var(--accent); color: #f39b7b; }.copyright { margin: 37px 0 0; padding-top: 15px; border-top: 1px solid #435159; text-align: center; color: #abb5b9; font-size: .72rem; }
+
+@media (max-width: 720px) { .container { width: min(100% - 34px, 1120px); } nav { gap: 14px; font-size: .72rem; }.hero, .two-columns, .quote-neighbor, .courses { grid-template-columns: 1fr; gap: 42px; }.hero { padding: 62px 8px; }.portrait-wrap { justify-self: center; }.portrait-wrap img { height: 390px; }.timeline, .favorite-grid { grid-template-columns: 1fr; }.timeline article, .timeline article:not(:first-child) { min-height: auto; padding: 20px 0; border-right: 0; border-bottom: 1px solid var(--line); }.courses { padding: 35px 26px; }.courses ol { columns: 1; }.favorite-card img { height: 260px; }.quote-neighbor { padding: 70px 0; } }

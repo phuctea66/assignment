@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Box Exercise</title>
+    <link href="box.css" rel="stylesheet">
+  
+  </head>
+  <body>
+    <div id="outer">
+      <div id="inner">
+      </div>
+      <button id = "my-btn">Go!</button>
+    </div>
+   <script>
+    let ele = document.getElementById('my-btn');
+    
+   
+    ele.addEventListener('click', openBox);
+   function openBox(event) {
+    console.log(event);}
+    
+  </script> 
+  </body>
+</html>
