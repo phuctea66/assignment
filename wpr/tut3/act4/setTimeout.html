@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>SetTimeOut</head>
+  <body>
+    <header></header>
+    <section>
+      <h2></h2>
+      <button>Start</button>
+    </section>
+  </body>
+  <script>
+    //window.addEventListener("load", init);
+    //init() {
+        document.querySelector("button").addEventListener("click", () =>{
+            for (let i = 3; i > 0; i--) {
+                setTimeout(() => {
+                    document.querySelector("h2").textContent = i;
+                }, (3 - i) * 1000);
+            };
+            setTimeout(() => {
+                    document.querySelector("h2").textContent = "Go!"}, 3000);
+        })
+   // };
+  </script>
+</html>
