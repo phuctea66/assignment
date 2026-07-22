@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    SetInterval
+  </head>
+  <body>
+    <header></header>
+    <section>
+      <h2></h2>
+      <button>Start</button>
+    </section>
+  </body>
+  <script>
+    document.querySelector("button").addEventListener("click", () => {
+      let count = 3;
+      document.querySelector("h2").textContent = count;
+      let interval = setInterval(() => {
+        document.querySelector("h2").textContent = count - 1;
+        count--;
+        if(count === 0) {
+            document.querySelector("h2").textContent = "Go!"
+            clearInterval(interval);
+        }
+    }, 1000);
+    });
+  </script>
+</html>
