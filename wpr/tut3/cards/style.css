@@ -1,0 +1,10 @@
+#board {
+    display: flex;
+    gap: 20px;
+}
+img {
+    width: 100px
+}
+.selected {
+    transform: scale(1.5);
+}
