@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    Stop Watch
+  </head>
+  <body>
+    <header></header>
+    <section>
+      <h2></h2>
+      <div>
+        <button id="start">Start</button>
+        <button id="restart">Restart</button>
+      </div>
+    </section>
+  </body>
+  <script>
+    let count = 0;
+    let timer = null;
+    const time = document.querySelector("h2");
+    const start = document.getElementById("start");
+    const restart = document.getElementById("restart");
+    time.textContent = 0 + " seconds";
+
+    start.addEventListener("click", () => {
+      if (timer === null) {
+        timer = setInterval(() => {
+          time.textContent = ++count + " seconds";
+        }, 1000);
+
+        start.textContent = "Stop";
+      } else {
+        clearInterval(timer);
+        timer = null;
+
+        start.textContent = "Start";
+      }
+    });
+    restart.addEventListener("click", () => {
+        count = 0;
+        clearInterval(timer);
+        timer = null;
+        time.textContent = 0 + " seconds";
+        start.textContent = "Start";
+    })
+  </script>
+</html>
