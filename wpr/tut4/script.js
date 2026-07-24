@@ -3,7 +3,8 @@
  */
 
 "use strict";
-(function() {
+(function () {
+  window.addEventListener("load", init);
 
   // Initialize event listeners when the page loads
 
@@ -13,6 +14,7 @@
    *   that triggers the loadData function
    */
   function init() {
+    id("loadDataButton").addEventListener("click", loadData);
   }
 
   /**
@@ -25,14 +27,40 @@
    * - Calls the displayData function to present the data after the countdown
    */
   function loadData() {
-    // Define the JSON object with sample data
+    const p = id("dataContainer");
+    const span = gen("span");
 
+    let data = [
+      { name: "Alice", age: 30, country: "USA" },
+      { name: "Bob", age: 25, country: "UK" },
+      { name: "Charlie", age: 35, country: "Canada" },
+    ];
+
+    p.textContent = "";
+    span.textContent = 3;
+    span.id = "countdown";
+
+    p.append("Loading data in ");
+    p.append(span);
+    p.append(" seconds...");
+
+    let count = 3;
+
+    const timer = setInterval(() => {
+      span.textContent = --count;
+
+      if (count === 0) {
+        clearInterval(timer);
+        p.textContent = "";
+        displayData(data);
+      }
+    }, 1000);
+
+    // Define the JSON object with sample data
 
     // Prepare to show countdown and data
 
-
     // Update countdown every second
-
   }
 
   /**
@@ -44,7 +72,13 @@
    * @param {object} data - The JSON data to be displayed
    */
   function displayData(data) {
-
+    data.forEach((obj) => {
+      let ele = gen("div");
+      ele.textContent =
+        "Name:" + obj.name + ", Age:" + obj.age + ", Country:" + obj.country;
+      ele.classList.add("data-item");
+      id("dataContainer").appendChild(ele);
+    });
   }
 
   /**
@@ -55,7 +89,7 @@
   function id(id) {
     return document.getElementById(id);
   }
-  
+
   /**
    * Creates a new DOM element with the specified tag name
    * @param {string} tagName - The name of the tag for the new element
@@ -64,5 +98,4 @@
   function gen(tagName) {
     return document.createElement(tagName);
   }
-
 })();
