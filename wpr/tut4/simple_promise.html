@@ -4,10 +4,10 @@
     <title>Simple Promise</title>
   </head>
   <body>
-    <div>
+    
       <p></p>
       <button>Start</button>
-    </div>
+    
   </body>
   <script>
     let count = null;
@@ -17,7 +17,7 @@
     }
 
     const button = qs("button");
-    button.addEventListener("click", () => {
+    button.addEventListener("click", async () => {
       if (count !== null) return;
 
       countDown();
@@ -29,15 +29,12 @@
         num = 5;
       });*/
 
-      async function promise() {
+
         const msg = await new Promise(executor);
         qs("p").textContent = msg;
         clearInterval(count);
         count = null;
         num = 5;
-      }
-
-      promise();
     
     });
 
