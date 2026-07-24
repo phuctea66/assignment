@@ -1,13 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <title>Reject promise click</title>
-    </head>
-    <body>
-        <div>Promise sesolve in <span>5</span> seconds</div>
-        <button>Stop</button>
-    </body>
-    <script>
-        
-    </script>
+  <head>
+    <title>Reject promise click</title>
+  </head>
+  <body>
+    <p>Promise resolved in <span>5</span> seconds</p>
+    <button>Stop</button>
+  </body>
+  <script>
+    "use strict";
+    let count = 5;
+    let timer = null;
+    function qs(selector) {
+      return document.querySelector(selector);
+    }
+    window.addEventListener("load", init);
+    function init() {
+      timer = setInterval(() => {
+        qs("span").textContent = --count;
+      }, 1000);
+    }
+    function executor(resolve, reject) {
+      setTimeout(() => {
+        resolve("Promise has resolved");
+      }, 5000);
+      qs("button").addEventListener("click", () => {
+        reject("Promise has failed to resolve");
+      });
+    }
+
+    let p = new Promise(executor);
+    p.then((msg) => {
+      qs("p").textContent = msg;
+      clearInterval(timer);
+    }).catch((msg) => {
+      qs("p").textContent = msg;
+      clearInterval(timer);
+    });
+  </script>
 </html>
