@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Simple Promise</title>
+  </head>
+  <body>
+    <div>
+      <p></p>
+      <button>Start</button>
+    </div>
+  </body>
+  <script>
+    let count = null;
+    let num = 5;
+    function qs(selector) {
+      return document.querySelector(selector);
+    }
+
+    const button = qs("button");
+    button.addEventListener("click", () => {
+      if (count !== null) return;
+
+      countDown();
+
+      /*new Promise(executor).then((msg) => {
+        qs("p").textContent = msg;
+        clearInterval(count);
+        count = null;
+        num = 5;
+      });*/
+
+      async function promise() {
+        const msg = await new Promise(executor);
+        qs("p").textContent = msg;
+        clearInterval(count);
+        count = null;
+        num = 5;
+      }
+
+      promise();
+    
+    });
+
+    function executor(resolve, reject) {
+      setTimeout(() => {
+        resolve("Promise is done!");
+      }, 5000);
+    }
+
+    function countDown() {
+      if (count === null) {
+        qs("p").textContent = num;
+        count = setInterval(() => {
+          qs("p").textContent = --num;
+        }, 1000);
+      }
+    }
+  </script>
+</html>
