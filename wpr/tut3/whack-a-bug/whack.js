@@ -23,7 +23,6 @@
    */
   function whackBug(event) {
     let bug = event.target;
-    let textScore = id("score");
 
     if (bug.classList.contains("whacked")) {
       return;
@@ -32,7 +31,7 @@
       bug.alt = "a whacked bug";
       bug.classList.add("whacked");
       score++;
-      textScore.textContent = score;
+      id("score").textContent = score;
     }
     if (score === 24) {
       let text = qs("#game p");
