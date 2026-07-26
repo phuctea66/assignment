@@ -3,7 +3,7 @@
  */
 'use strict';
 (function() {
-  const API_URL = '';
+  const API_URL = 'http://103.159.50.237/wpr/api/login.php';
 
   window.addEventListener('load', init);
 
@@ -11,16 +11,32 @@
    * TODO - setup the sign-in button on initial page load
    */
   function init() {
-    // TODO
+    qs('form').addEventListener("submit", function(e) {
+      e.preventDefault();
+      signIn();
+    });
   }
 
-  /**
-   * TODO
-   * signIn - Signs the user in based on username and password inputs
-   */
   function signIn() {
-    //TODO
+    const user = id("username").value;
+    const pass = id("password").value;
+
+    const data = new URLSearchParams ({
+      user: user,
+      password: pass
+    });
+
+    fetch(API_URL, {method: "POST", body: data})
+    .then(statusCheck)
+    .then(res => res.text())
+    .then(data => {
+      id("response").textContent = data;
+      id("username").value = "";
+      id("password").value = "";
+    })
+    .catch(err => console.log(err))
   }
+
 
   /* ------------------------------ Helper Functions  ------------------------------ */
 
@@ -48,11 +64,20 @@
   }
 
   /**
-   * Returns the element that has the matches the selector passed.
+   * Returns the element that has matched the selector passed.
    * @param {string} selector - selector for element
    * @return {object} DOM object associated with selector.
    */
   function qs(selector) {
     return document.querySelector(selector);
+  }
+
+  /**
+   * Create an emty element that has matched the selector passed.
+   * @param {string} selector - selector for element
+   * @return {object} an empty DOM object.
+   */
+  function gen(selector) {
+    return document.createElement(selector);
   }
 })();
